@@ -4,6 +4,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import { usePathname } from "next/navigation";
+import { CodeIcon, HomeIcon, UserIcon } from "lucide-react";
 
 export default function DesktopNavbar() {
   const pathname = usePathname();
@@ -14,44 +15,38 @@ export default function DesktopNavbar() {
       <div className="flex items-center space-x-1">
         <Link
           href="/"
-          className={`relative px-4 py-2 rounded-lg transition-all duration-200 group ${
+          className={`relative px-4 py-2 rounded-lg transition-all duration-200 group flex flex-row items-center gap-2 ${
             pathname === "/"
-              ? "text-primary bg-primary/10"
+              ? "text-primary"
               : "text-foreground hover:text-primary"
           }`}
         >
+          <HomeIcon className="w-4 h-4" />
           <span className="relative z-10 font-medium">Home</span>
-          {pathname === "/" && (
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg"></div>
-          )}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
         </Link>
         <Link
           href="/generate-program"
-          className={`relative px-4 py-2 rounded-lg transition-all duration-200 group ${
+          className={`relative px-4 py-2 rounded-lg transition-all duration-200 group flex flex-row items-center gap-2 ${
             pathname === "/generate-program"
-              ? "text-primary bg-primary/10"
+              ? "text-primary"
               : "text-foreground hover:text-primary"
           }`}
         >
+          <CodeIcon className="w-4 h-4" />
           <span className="relative z-10 font-medium">Generate Program</span>
-          {pathname === "/generate-program" && (
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg"></div>
-          )}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
         </Link>
         <Link
           href="/profile"
-          className={`relative px-4 py-2 rounded-lg transition-all duration-200 group ${
+          className={`relative px-4 py-2 rounded-lg transition-all duration-200 group flex flex-row items-center gap-2 ${
             pathname === "/profile"
-              ? "text-primary bg-primary/10"
+              ? "text-primary"
               : "text-foreground hover:text-primary"
           }`}
         >
+          <UserIcon className="w-4 h-4" />
           <span className="relative z-10 font-medium">Profile</span>
-          {pathname === "/profile" && (
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg"></div>
-          )}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
         </Link>
       </div>
