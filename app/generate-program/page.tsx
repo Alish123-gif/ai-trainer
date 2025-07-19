@@ -186,7 +186,7 @@ const GenerateProgramPage = () => {
                   Fitness Level
                 </label>
                 <select
-                  name="fitnessLevel"
+                  name="fitness_level"
                   value={form.fitness_level}
                   onChange={handleChange}
                   className="w-full border-2 rounded-lg px-3 py-2 text-lg bg-card/80"
