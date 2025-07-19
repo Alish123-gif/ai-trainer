@@ -214,6 +214,21 @@
   }
 }
 
+/* Enhanced scanline for better light mode visibility */
+@keyframes scanline-enhanced {
+  0% {
+    background-position: 0 0;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    background-position: 0 100%;
+    opacity: 0.3;
+  }
+}
+
 @keyframes slow-spin {
   from {
     transform: rotate(0deg);
@@ -225,6 +240,10 @@
 
 .animate-scanline {
   animation: scanline 8s linear infinite;
+}
+
+.animate-scanline-enhanced {
+  animation: scanline-enhanced 6s ease-in-out infinite;
 }
 
 .animate-slow-spin {
