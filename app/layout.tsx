@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ConvexClerkProvider from "@/providers/ConvexClerkProvider";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { ToastProvider } from "@/components/ui/ToastProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -34,15 +35,17 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <ThemeProvider>
-            <Navbar />
-            <div className="fixed inset-0 -z-10">
-              <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background"></div>
-              <div className="absolute inset-0 bg-[linear-gradient(var(--aithena-grid-color)_1px,transparent_1px),linear-gradient(90deg,var(--aithena-grid-color)_1px,transparent_1px)] bg-[size:24px_24px] opacity-25"></div>
-              <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/25"></div>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent animate-scanline"></div>
-            </div>
-            <main className="pt-20 flex-grow">{children}</main>
-            <Footer />
+            <ToastProvider>
+              <Navbar />
+              <div className="fixed inset-0 -z-10">
+                <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(var(--aithena-grid-color)_1px,transparent_1px),linear-gradient(90deg,var(--aithena-grid-color)_1px,transparent_1px)] bg-[size:24px_24px] opacity-25"></div>
+                <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/25"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent animate-scanline"></div>
+              </div>
+              <main className="pt-10 flex-grow">{children}</main>
+              <Footer />
+            </ToastProvider>
           </ThemeProvider>
         </body>
       </html>
