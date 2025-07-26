@@ -109,7 +109,10 @@ const GenerateProgramPage = () => {
                       key={opt.value}
                       className={`flex flex-col items-center justify-center px-4 py-2 rounded-xl border-2 transition-all text-2xl font-bold ${form.fitness_goal === opt.value ? "border-primary bg-primary/10" : "border-border bg-background hover:bg-accent/30"}`}
                       onClick={() =>
-                        setForm((prev) => ({ ...prev, fitnessGoal: opt.value }))
+                        setForm((prev) => ({
+                          ...prev,
+                          fitness_goal: opt.value,
+                        }))
                       }
                     >
                       <span>{opt.icon}</span>
@@ -215,7 +218,7 @@ const GenerateProgramPage = () => {
                   Equipment Access
                 </label>
                 <input
-                  name="equipmentAccess"
+                  name="equipment_access"
                   value={form.equipment_access}
                   onChange={handleChange}
                   className="w-full border-2 rounded-lg px-3 py-2 text-lg"
@@ -228,7 +231,7 @@ const GenerateProgramPage = () => {
                   Dietary Restrictions
                 </label>
                 <input
-                  name="dietaryRestrictions"
+                  name="dietary_restrictions"
                   value={form.dietary_restrictions}
                   onChange={handleChange}
                   className="w-full border-2 rounded-lg px-3 py-2 text-lg"
