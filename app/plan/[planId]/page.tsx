@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import {
   LoaderIcon,
   ArrowLeftIcon,
-  DownloadIcon,
   DumbbellIcon,
   SaladIcon,
   CalendarIcon,
