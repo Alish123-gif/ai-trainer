@@ -11,7 +11,7 @@ import { AccountSettings } from "@/components/profile/AccountSettings";
 import { PlanManagement } from "@/components/plans/PlanManagement";
 
 const ProfilePage = () => {
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,9 +35,22 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
-    fetchPlans();
+    if (isLoaded && user?.id) {
+      fetchPlans();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id]);
+  }, [user?.id, isLoaded]);
+
+  // Show loading state while Clerk is loading
+  if (!isLoaded) {
+    return (
+      <div className="min-h-screen py-12 px-4">
+        <div className="max-w-3xl mx-auto">
+          <LoadingCard text="Loading authentication..." />
+        </div>
+      </div>
+    );
+  }
 
   // Action handlers
   const handleReactivate = async (planId: string) => {
