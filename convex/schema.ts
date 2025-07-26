@@ -44,6 +44,7 @@ export default defineSchema({
   plans: defineTable({
     name: v.string(),
     userId: v.id("users"),
+    planId: v.string(),
     firstName: v.string(),
     profilePic: v.string(),
     fitnessGoal: v.string(),

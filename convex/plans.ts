@@ -35,6 +35,7 @@ export const createPlan = mutation({
     // Insert the new plan with createdAt
     return await ctx.db.insert("plans", {
       ...args,
+      planId: `${args.userId}-${Date.now()}`,
       createdAt: Date.now(),
     });
   },
