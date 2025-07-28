@@ -49,6 +49,18 @@ export interface Plan {
   createdAt?: string;
 }
 
+export interface PlanInput {
+  fitness_goal: string;
+  age: string;
+  height: string;
+  weight: string;
+  workout_days: string;
+  injuries: string;
+  fitness_level: string;
+  equipment_access: string;
+  dietary_restrictions: string;
+}
+
 // Input types for API calls
 export interface WorkoutPlanInput {
   schedule: string[];

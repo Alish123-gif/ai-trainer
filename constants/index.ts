@@ -1,3 +1,16 @@
+export const fitnessGoalOptions = [
+  { label: "Weight Loss", value: "Weight Loss", icon: "🔥" },
+  { label: "Muscle Gain", value: "Muscle Gain", icon: "💪" },
+  { label: "General Fitness", value: "General Fitness", icon: "🏃" },
+  { label: "Custom", value: "Custom", icon: "🛠️" },
+];
+
+export const fitnessLevelOptions = [
+  { label: "Beginner", value: "Beginner" },
+  { label: "Intermediate", value: "Intermediate" },
+  { label: "Advanced", value: "Advanced" },
+];
+
 export const USER_PROGRAMS = [
   {
     id: 101,
