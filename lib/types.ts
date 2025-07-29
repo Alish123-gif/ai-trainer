@@ -47,6 +47,7 @@ export interface Plan {
   workoutPlan: WorkoutPlan;
   dietPlan: DietPlan;
   createdAt?: string;
+  success?: boolean;
 }
 
 export interface PlanInput {
