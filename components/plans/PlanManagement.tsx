@@ -55,6 +55,8 @@ export const PlanManagement = ({
   });
 
   const activePlans = plans.filter((p) => p.isActive);
+  const successPlans = plans.filter((p) => p.success);
+  const decidedPlans = plans.filter((p) => p.success || !p.isActive);
   const inactivePlans = plans.filter((p) => !p.isActive);
 
   const getPlanIcon = (goal: string) => {
@@ -157,7 +159,9 @@ export const PlanManagement = ({
             <div>
               <div className="text-2xl font-bold">
                 {plans.length > 0
-                  ? Math.round((activePlans.length / plans.length) * 100)
+                  ? Math.round(
+                      (successPlans.length / decidedPlans.length) * 100
+                    )
                   : 0}
                 %
               </div>
