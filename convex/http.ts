@@ -308,7 +308,7 @@ http.route({
             : parseInt(String(workout_days)) || 0,
         injuries: injuries || "",
         fitnessLevel: fitness_level || "",
-        equipmentAccess: "", // Not provided in payload, set to empty string or fetch if available
+        equipmentAccess: equipment_access || "",
         dietaryRestrictions: dietary_restrictions || "",
         workoutPlan,
         dietPlan,
