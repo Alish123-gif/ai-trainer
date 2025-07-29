@@ -25,6 +25,7 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-success: var(--success);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -89,6 +90,8 @@
   --input: var(--aithena-gray);
   --ring: var(--aithena-purple);
 
+  /* Success color */
+  --success: #22c55e;
   /* Chart colors */
   --chart-1: var(--aithena-purple);
   --chart-2: var(--aithena-teal);
@@ -150,6 +153,8 @@
   --input: #475569;
   --ring: var(--aithena-purple);
 
+  /* Success color */
+  --success: #137a39;
   /* Chart colors */
   --chart-1: var(--aithena-purple);
   --chart-2: var(--aithena-teal);
