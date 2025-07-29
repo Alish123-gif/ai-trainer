@@ -20,6 +20,7 @@ export const createPlan = mutation({
     workoutPlan: workoutPlanSchema,
     dietPlan: dietPlanSchema,
     isActive: v.boolean(),
+    success: v.boolean(),
   },
   handler: async (ctx, args) => {
     // Deactivate all active plans for this user

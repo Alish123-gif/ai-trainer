@@ -313,6 +313,7 @@ http.route({
         workoutPlan,
         dietPlan,
         isActive: true,
+        success: false,
       });
 
       return new Response(
