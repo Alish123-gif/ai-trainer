@@ -14,7 +14,10 @@ const Preferences = ({
   ) => void;
 }) => {
   return (
-    <>
+    <div className="col-span-2">
+      <h1 className="block text-3xl font-semibold mb-4 text-primary">
+        Preferences
+      </h1>
       {/* Workout Days Slider */}
       <div>
         <label className="block text-base font-medium mb-1">
@@ -86,7 +89,7 @@ const Preferences = ({
           placeholder="None, Vegan, etc."
         />
       </div>
-    </>
+    </div>
   );
 };
 

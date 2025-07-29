@@ -17,13 +17,15 @@ const FitnessGoal = ({
 }) => {
   return (
     <div className="col-span-2">
-      <label className="block text-lg font-semibold mb-2">Fitness Goal</label>
-      <div className="flex gap-4">
+      <h1 className="block text-3xl font-semibold mb-4 text-primary">
+        Fitness Goal
+      </h1>
+      <div className="grid grid-cols-2 gap-4">
         {fitnessGoalOptions.map((opt) => (
           <button
             type="button"
             key={opt.value}
-            className={`flex flex-col items-center justify-center px-4 py-2 rounded-xl border-2 transition-all text-2xl font-bold ${form.fitness_goal === opt.value ? "border-primary bg-primary/10" : "border-border bg-background hover:bg-accent/30"}`}
+            className={`h-32 flex flex-col items-center justify-center px-4 py-2 rounded-xl border-2 transition-all text-2xl font-bold ${form.fitness_goal === opt.value ? "border-primary bg-primary/10" : "border-border bg-background hover:bg-accent/30"}`}
             onMouseUp={() =>
               setForm((prev) => ({
                 ...prev,
@@ -41,7 +43,7 @@ const FitnessGoal = ({
                   name="fitness_goal"
                   value={form.fitness_goal}
                   onChange={handleChange}
-                  className="w-full border rounded-lg px-3 py-2 text-lg"
+                  className="text-lg border-border border-b-2 bg-transparent focus:outline-none focus:border-primary my-2 w-[60%] text-center"
                   placeholder="e.g. Run a marathon"
                   required
                 />
