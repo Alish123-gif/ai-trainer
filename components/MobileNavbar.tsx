@@ -21,7 +21,7 @@ export default function MobileNavbar() {
       <div className="md:hidden">
         <button
           onClick={toggleMenu}
-          className="text-foreground hover:text-primary transition-colors duration-200"
+          className="text-foreground hover:text-primary transition-colors duration-200 flex justify-end self-end"
         >
           {isMenuOpen ? (
             <X className="w-6 h-6" />
@@ -33,8 +33,8 @@ export default function MobileNavbar() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-card/50 backdrop-blur-sm rounded-xl mt-2 border border-border/50">
+        <div className="md:hidden absolute top-18 left-0 right-0 z-50">
+          <div className=" px-2 pt-2 mx-4 pb-3 space-y-1 bg-card/50 backdrop-blur-sm rounded-xl mt-2 border border-border/50">
             <Link
               href="/"
               className={`block px-3 py-2 rounded-lg transition-all duration-200 ${

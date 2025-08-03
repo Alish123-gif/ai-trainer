@@ -23,6 +23,7 @@ const GenerateProgramPage = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [currentStep, setCurrentStep] = useState(1);
 
   // Handle form changes
   const handleChange = (
@@ -45,6 +46,7 @@ const GenerateProgramPage = () => {
   // Handle form submit
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (currentStep !== 4) return;
     setLoading(true);
     setError("");
     try {
@@ -81,7 +83,7 @@ const GenerateProgramPage = () => {
             a tailored workout & diet instantly!
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 items-start">
+        <div className="flex flex-col md:flex-row gap-8 items-center">
           {/* FORM */}
           <PlanForm
             form={form}
@@ -90,6 +92,8 @@ const GenerateProgramPage = () => {
             handleSubmit={handleSubmit}
             error={error}
             loading={loading}
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
           />
           {/* LIVE SUMMARY CARD */}
           <SummaryPreview form={form} />

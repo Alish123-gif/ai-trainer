@@ -16,10 +16,7 @@ const FitnessGoal = ({
   ) => void;
 }) => {
   return (
-    <div className="col-span-2">
-      <h1 className="block text-3xl font-semibold mb-4 text-primary">
-        Fitness Goal
-      </h1>
+    <div>
       <div className="grid grid-cols-2 gap-4">
         {fitnessGoalOptions.map((opt) => (
           <button
