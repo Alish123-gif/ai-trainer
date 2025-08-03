@@ -9,14 +9,18 @@ const PlanDetails = ({ plan }: { plan: Plan }) => {
     console.log("Plan marked as done");
   };
   return (
-    <section className="bg-card/80 rounded-xl p-6 flex flex-col gap-2 border">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold mb-3">Plan Details</h3>
-        <Button variant="success" onClick={markAsDone}>
+    <section className="bg-card/80 rounded-xl p-4 md:p-6 flex flex-col gap-2 border max-w-7xl">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+        <h3 className="text-lg font-semibold">Plan Details</h3>
+        <Button
+          variant="success"
+          onClick={markAsDone}
+          className="w-full sm:w-auto"
+        >
           Mark as Done
         </Button>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 text-sm">
         <div className="flex items-center gap-2">
           <UserIcon className="w-4 h-4 text-primary" />
           <span>

@@ -108,7 +108,7 @@ const PlanForm = ({
 
   return (
     <form
-      className="flex-1 bg-card/90 border rounded-2xl p-8 shadow-lg mb-8 md:mb-0"
+      className="flex-1 bg-card/90 border rounded-2xl p-4 md:p-8 shadow-lg mb-8 lg:mb-0 w-full"
       onSubmit={(e) => {
         e.preventDefault();
         if (currentStep === 4) {
@@ -120,7 +120,7 @@ const PlanForm = ({
       <ProgressBar steps={steps} currentStep={currentStep} />
 
       {/* Step Content */}
-      <div className="min-h-[400px]">
+      <div className="min-h-[350px] md:min-h-[400px]">
         {currentStep === 1 && (
           <GoalsSection
             form={form}

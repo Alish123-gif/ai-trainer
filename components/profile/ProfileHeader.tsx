@@ -103,13 +103,13 @@ export const ProfileHeader = ({ onProfileUpdate }: ProfileHeaderProps) => {
   };
 
   return (
-    <Card className="p-6">
-      <div className="flex items-start gap-6">
+    <Card className="p-4 md:p-6">
+      <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
         {/* Profile Picture Section */}
-        <div className="relative">
-          <Avatar className="w-24 h-24">
+        <div className="relative flex justify-center md:justify-start">
+          <Avatar className="w-20 h-20 md:w-24 md:h-24">
             <AvatarImage src={user?.imageUrl} alt={getFullName()} />
-            <AvatarFallback className="text-lg font-semibold">
+            <AvatarFallback className="text-base md:text-lg font-semibold">
               {getInitials()}
             </AvatarFallback>
           </Avatar>
@@ -141,10 +141,10 @@ export const ProfileHeader = ({ onProfileUpdate }: ProfileHeaderProps) => {
         </div>
 
         {/* Profile Info Section */}
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 space-y-4 w-full">
           {isEditing ? (
             <div className="space-y-3">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
                   <label className="text-sm font-medium text-muted-foreground">
                     First Name
@@ -194,7 +194,7 @@ export const ProfileHeader = ({ onProfileUpdate }: ProfileHeaderProps) => {
                   className="mt-1"
                 />
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <Button
                   onClick={handleSave}
                   disabled={isLoading}
@@ -215,9 +215,11 @@ export const ProfileHeader = ({ onProfileUpdate }: ProfileHeaderProps) => {
             </div>
           ) : (
             <div className="space-y-3">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
-                  <h2 className="text-2xl font-bold">{getFullName()}</h2>
+                  <h2 className="text-xl md:text-2xl font-bold">
+                    {getFullName()}
+                  </h2>
                   <div className="flex items-center gap-2 mt-1">
                     <UserIcon className="w-4 h-4 text-muted-foreground" />
                     <span className="text-muted-foreground">
@@ -228,24 +230,26 @@ export const ProfileHeader = ({ onProfileUpdate }: ProfileHeaderProps) => {
                 <Button
                   variant="outline"
                   onClick={() => setIsEditing(true)}
-                  className="gap-2"
+                  className="gap-2 w-full sm:w-auto"
                 >
                   <EditIcon className="w-4 h-4" />
                   Edit Profile
                 </Button>
               </div>
 
-              <div className="flex items-center gap-2">
-                <MailIcon className="w-4 h-4 text-muted-foreground" />
-                <span className="text-muted-foreground">
-                  {user?.emailAddresses?.[0]?.emailAddress}
-                </span>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <div className="flex items-center gap-2">
+                  <MailIcon className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-muted-foreground text-sm">
+                    {user?.emailAddresses?.[0]?.emailAddress}
+                  </span>
+                </div>
                 <Badge variant="secondary">Verified</Badge>
               </div>
 
               <div className="flex items-center gap-2">
                 <CalendarIcon className="w-4 h-4 text-muted-foreground" />
-                <span className="text-muted-foreground">
+                <span className="text-muted-foreground text-sm">
                   Member since{" "}
                   {user?.createdAt
                     ? new Date(user.createdAt).toLocaleDateString()

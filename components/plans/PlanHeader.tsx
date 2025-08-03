@@ -28,38 +28,49 @@ const PlanHeader = ({
   router,
 }: PlanHeaderProps) => {
   return (
-    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-2">
-      <div className="flex items-center gap-3">
-        <span className="text-4xl">
-          {plan.fitnessGoal === "Weight Loss" ? (
-            <FlameIcon />
-          ) : plan.fitnessGoal === "Muscle Gain" ? (
-            <DumbbellIcon />
-          ) : (
-            <CalendarIcon />
-          )}
-        </span>
-        <div>
-          <div className="text-3xl font-bold mb-1">{plan.name}</div>
-          <div className="text-muted-foreground text-sm">
-            {plan.fitnessGoal} &middot;{" "}
-            {plan.createdAt
-              ? new Date(Number(plan.createdAt)).toLocaleDateString()
-              : "No date"}
+    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 max-w-7xl mx-auto mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="flex items-center gap-3">
+          <span className="text-3xl md:text-4xl">
+            {plan.fitnessGoal === "Weight Loss" ? (
+              <FlameIcon />
+            ) : plan.fitnessGoal === "Muscle Gain" ? (
+              <DumbbellIcon />
+            ) : (
+              <CalendarIcon />
+            )}
+          </span>
+          <div>
+            <div className="text-2xl md:text-3xl font-bold mb-1">
+              {plan.name}
+            </div>
+            <div className="text-muted-foreground text-sm">
+              {plan.fitnessGoal} &middot;{" "}
+              {plan.createdAt
+                ? new Date(Number(plan.createdAt)).toLocaleDateString()
+                : "No date"}
+            </div>
           </div>
         </div>
         {plan.isActive ? (
-          <Badge variant="success" className="ml-2 flex items-center gap-1">
+          <Badge variant="success" className="flex items-center gap-1 w-fit">
             <CheckCircle2Icon className="w-4 h-4" /> Active
           </Badge>
         ) : (
-          <Badge variant="destructive" className="ml-2 flex items-center gap-1">
+          <Badge
+            variant="destructive"
+            className="flex items-center gap-1 w-fit"
+          >
             <XCircleIcon className="w-4 h-4" /> Inactive
           </Badge>
         )}
       </div>
-      <div className="flex gap-2">
-        <Button variant="ghost" onClick={() => router.back()}>
+      <div className="flex flex-col sm:flex-row gap-2">
+        <Button
+          variant="ghost"
+          onClick={() => router.back()}
+          className="w-full sm:w-auto"
+        >
           <ArrowLeftIcon className="w-4 h-4 mr-2" />
           Back
         </Button>

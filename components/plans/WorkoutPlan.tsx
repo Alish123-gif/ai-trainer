@@ -20,13 +20,13 @@ const WorkoutPlan = ({
   toggleDay,
 }: Props) => {
   return (
-    <section className="bg-card/80 rounded-xl p-6 border h-fit">
+    <section className="bg-card/80 rounded-xl p-4 md:p-6 border h-fit">
       <div className="flex items-center gap-2 mb-4">
-        <DumbbellIcon className="w-6 h-6 text-primary" />
-        <h2 className="text-xl font-bold">Workout Plan</h2>
+        <DumbbellIcon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+        <h2 className="text-lg md:text-xl font-bold">Workout Plan</h2>
       </div>
-      <div className="mb-3 flex items-center justify-between">
-        <Badge variant="outline" className="text-sm">
+      <div className="mb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <Badge variant="outline" className="text-sm w-fit">
           Schedule: {plan.workoutPlan.schedule.join(", ")}
         </Badge>
         <div className="flex gap-2">
@@ -58,26 +58,28 @@ const WorkoutPlan = ({
             >
               <button
                 onClick={() => toggleDay(exercise.day)}
-                className="w-full p-4 flex items-center justify-between hover:bg-accent/30 transition-colors"
+                className="w-full p-3 md:p-4 flex items-center justify-between hover:bg-accent/30 transition-colors"
               >
-                <h3 className="font-semibold text-lg text-primary">
+                <h3 className="font-semibold text-base md:text-lg text-primary">
                   {exercise.day}
                 </h3>
                 {isExpanded ? (
-                  <ChevronDownIcon className="w-5 h-5 text-muted-foreground" />
+                  <ChevronDownIcon className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
                 ) : (
-                  <ChevronRightIcon className="w-5 h-5 text-muted-foreground" />
+                  <ChevronRightIcon className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
                 )}
               </button>
               {isExpanded && (
-                <div className="px-4 pb-4 space-y-3 mt-2">
+                <div className="px-3 md:px-4 pb-3 md:pb-4 space-y-3 mt-2">
                   {exercise.routines.map((routine, j) => (
                     <div
                       key={j}
-                      className="flex justify-between items-center py-2 px-3 bg-card rounded-md border"
+                      className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 px-3 bg-card rounded-md border gap-2"
                     >
-                      <span className="font-medium">{routine.name}</span>
-                      <Badge variant="secondary" className="font-mono">
+                      <span className="font-medium text-sm md:text-base">
+                        {routine.name}
+                      </span>
+                      <Badge variant="secondary" className="font-mono w-fit">
                         {routine.sets} × {routine.reps}
                       </Badge>
                     </div>

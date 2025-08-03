@@ -44,7 +44,7 @@ const ProfilePage = () => {
   // Show loading state while Clerk is loading
   if (!isLoaded) {
     return (
-      <div className="min-h-screen py-12 px-4">
+      <div className="min-h-screen py-8 md:py-12 px-4">
         <div className="max-w-3xl mx-auto">
           <LoadingCard text="Loading authentication..." />
         </div>
@@ -120,7 +120,7 @@ const ProfilePage = () => {
   // Show loading state
   if (loading) {
     return (
-      <div className="min-h-screen py-12 px-4">
+      <div className="min-h-screen py-8 md:py-12 px-4">
         <div className="max-w-3xl mx-auto">
           <LoadingCard text="Loading your profile..." />
         </div>
@@ -131,7 +131,7 @@ const ProfilePage = () => {
   // Show error state
   if (error) {
     return (
-      <div className="min-h-screen py-12 px-4">
+      <div className="min-h-screen py-8 md:py-12 px-4">
         <div className="max-w-3xl mx-auto">
           <ErrorMessage
             title="Failed to Load Profile"
@@ -144,15 +144,15 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <div className="min-h-screen py-8 md:py-12 px-4">
+      <div className="max-w-5xl mx-auto space-y-6 md:space-y-8">
         {/* Profile Header */}
         <ProfileHeader onProfileUpdate={fetchPlans} />
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8">
           {/* Plan Management - Takes 2/3 of the space */}
-          <div className="lg:col-span-2">
+          <div className="xl:col-span-2">
             <PlanManagement
               plans={plans}
               onPlanAction={async (action, planId) => {
@@ -174,7 +174,7 @@ const ProfilePage = () => {
           </div>
 
           {/* Account Settings - Takes 1/3 of the space */}
-          <div className="lg:col-span-1">
+          <div className="xl:col-span-1">
             <AccountSettings />
           </div>
         </div>

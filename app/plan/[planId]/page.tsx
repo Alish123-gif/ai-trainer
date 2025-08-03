@@ -82,8 +82,8 @@ export default function PlanDetailsPage() {
   }
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-7xl mx-auto flex flex-col gap-8">
+    <div className="min-h-screen py-8 md:py-12 px-4">
+      <div className=" mx-auto flex flex-col gap-6 md:gap-8">
         {/* Header */}
         <PlanHeader
           plan={plan}
@@ -91,11 +91,12 @@ export default function PlanDetailsPage() {
           showPDFPreview={showPDFPreview}
           router={router}
         />
-
-        {/* Plan Meta */}
+      </div>
+      {/* Content with max width */}
+      <div className="max-w-6xl mx-auto px-4 flex flex-col gap-6 md:gap-8">
         {showPDFPreview ? (
           /* PDF Preview Section */
-          <div className="w-full h-[80vh] border rounded-lg overflow-hidden">
+          <div className="w-full h-[70vh] md:h-[80vh] border rounded-lg overflow-hidden">
             <PDFViewer width="100%" height="100%">
               <PlanPDFDocument plan={plan} />
             </PDFViewer>
@@ -114,7 +115,7 @@ export default function PlanDetailsPage() {
             <PlanDetails plan={plan} />
 
             {/* Workout and Diet Plans */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
               <WorkoutPlan
                 plan={plan}
                 expandAll={expandAll}

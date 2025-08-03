@@ -74,16 +74,16 @@ const GenerateProgramPage = () => {
       <div className="container mx-auto px-4 h-full max-w-6xl">
         {/* Title */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold font-mono mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold font-mono mb-2">
             <span>Generate Your </span>
             <span className="text-primary uppercase">Fitness Program</span>
           </h1>
-          <p className="text-muted-foreground mt-2 text-lg">
+          <p className="text-muted-foreground mt-2 text-base md:text-lg px-4">
             Create your personalized plan in seconds. Fill out the form and get
             a tailored workout & diet instantly!
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 items-center">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
           {/* FORM */}
           <PlanForm
             form={form}
