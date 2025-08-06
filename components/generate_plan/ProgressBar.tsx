@@ -28,7 +28,7 @@ const ProgressBar = ({
             </div>
             {index < steps.length - 1 && (
               <div
-                className={`w-16 h-1 mx-2 ${
+                className={`w-12 md:w-16 h-1 mx-2 ${
                   currentStep > step.id ? "bg-primary" : "bg-muted"
                 }`}
               />
