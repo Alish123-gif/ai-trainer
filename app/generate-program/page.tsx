@@ -4,11 +4,12 @@ import PlanForm from "@/components/generate_plan/PlanForm";
 import SummaryPreview from "@/components/generate_plan/SummaryPreview";
 import { PlanInput } from "@/lib/types";
 import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 const GenerateProgramPage = () => {
   const { user } = useUser();
-
+  const router = useRouter();
   // Form state
   const [form, setForm] = useState<PlanInput>({
     fitness_goal: "Weight Loss",
@@ -62,6 +63,11 @@ const GenerateProgramPage = () => {
       if (!res.ok) {
         throw new Error("Failed to generate plans");
       }
+      const data = await res.json();
+      if (!data.success) {
+        throw new Error(data.message || "Failed to generate plans");
+      }
+      router.push("/plan/" + data.plan_id);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
