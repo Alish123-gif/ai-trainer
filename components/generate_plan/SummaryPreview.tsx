@@ -30,6 +30,10 @@ const SummaryPreview = ({ form }: { form: PlanInput }) => {
           <span>{form.weight || "-"}</span>
         </div>
         <div className="flex justify-between">
+          <span className="font-mono">Gender:</span>
+          <span>{form.gender || "-"}</span>
+        </div>
+        <div className="flex justify-between">
           <span className="font-mono">Workout Days:</span>
           <span>{form.workout_days}</span>
         </div>

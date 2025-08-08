@@ -55,6 +55,7 @@ export interface PlanInput {
   age: string;
   height: string;
   weight: string;
+  gender: string;
   workout_days: string;
   injuries: string;
   fitness_level: string;

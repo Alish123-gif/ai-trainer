@@ -140,6 +140,7 @@ http.route({
         age,
         height,
         weight,
+        gender,
         injuries,
         workout_days,
         fitness_goal,
@@ -163,6 +164,7 @@ http.route({
       Age: ${age}
       Height: ${height}
       Weight: ${weight}
+      Gender: ${gender}
       Injuries or limitations: ${injuries}
       Available days for workout: ${workout_days}
       Fitness goal: ${fitness_goal}
@@ -171,7 +173,7 @@ http.route({
       
       As a professional coach:
       - Consider muscle group splits to avoid overtraining the same muscles on consecutive days
-      - Design exercises that match the fitness level and account for any injuries
+      - Design exercises that match the fitness level and account for any injuries and the gender of the user
       - Structure the workouts to specifically target the user's fitness goal
       
       CRITICAL SCHEMA INSTRUCTIONS:
@@ -214,6 +216,7 @@ http.route({
         Age: ${age}
         Height: ${height}
         Weight: ${weight}
+        Gender: ${gender}
         Fitness goal: ${fitness_goal}
         Dietary restrictions: ${dietary_restrictions}
         
@@ -295,12 +298,11 @@ http.route({
       // save to our DB: CONVEX
       const planId = await ctx.runMutation(api.plans.createPlan, {
         name: `${fitness_goal} Plan - ${new Date().toLocaleDateString()}`,
-        userId: user._id, // Use the Convex user ID
-        firstName: "", // Not provided in payload, set to empty string or fetch if available
-        profilePic: "", // Not provided in payload, set to empty string or fetch if available
+        userId: user._id,
         fitnessGoal: fitness_goal,
         height: height || "",
         weight: weight || "",
+        gender: gender || "",
         age: typeof age === "number" ? age : parseInt(String(age)) || 0,
         workoutDays:
           typeof workout_days === "number"

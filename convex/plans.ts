@@ -6,11 +6,10 @@ export const createPlan = mutation({
   args: {
     name: v.string(),
     userId: v.id("users"),
-    firstName: v.string(),
-    profilePic: v.string(),
     fitnessGoal: v.string(),
     height: v.string(),
     weight: v.string(),
+    gender: v.string(),
     age: v.number(),
     workoutDays: v.number(),
     injuries: v.string(),

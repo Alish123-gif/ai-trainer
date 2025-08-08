@@ -94,6 +94,26 @@ const PersonalInfo = ({
           <p className="text-red-500 text-sm mt-1">{validationErrors.weight}</p>
         )}
       </div>
+
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <label className="text-lg font-semibold">Gender</label>
+        </div>
+        <select
+          name="gender"
+          value={form.gender}
+          onChange={handleChange}
+          className="w-full border-2 rounded-lg px-4 py-3 text-lg bg-card/80 focus:border-primary focus:outline-none transition-colors"
+          required
+        >
+          <option value="">Select your gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        {validationErrors?.gender && (
+          <p className="text-red-500 text-sm mt-1">{validationErrors.gender}</p>
+        )}
+      </div>
     </div>
   );
 };

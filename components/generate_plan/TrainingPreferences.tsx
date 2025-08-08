@@ -66,7 +66,6 @@ const TrainingPreferences = ({
           onChange={handleChange}
           className="w-full border-2 rounded-lg px-3 py-2 text-lg bg-card/80 focus:border-primary focus:outline-none"
         >
-          <option value="">Select equipment access</option>
           <option value="Bodyweight Only">Bodyweight Only</option>
           <option value="Minimal Equipment">Minimal Equipment</option>
           <option value="Home Gym">Home Gym</option>

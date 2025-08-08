@@ -16,6 +16,7 @@ const GenerateProgramPage = () => {
     height: "",
     weight: "",
     age: "",
+    gender: "",
     workout_days: "3",
     injuries: "None",
     fitness_level: "Beginner",
@@ -67,7 +68,7 @@ const GenerateProgramPage = () => {
       if (!data.success) {
         throw new Error(data.message || "Failed to generate plans");
       }
-      router.push("/plan/" + data.plan_id);
+      router.push("/plan/" + data.data.planId);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
