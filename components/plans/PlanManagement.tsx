@@ -22,6 +22,7 @@ import { Plan } from "@/lib/types";
 import { useToastContext } from "@/components/ui/ToastProvider";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { NoPlansEmptyState } from "@/components/ui/EmptyState";
+import { cn } from "@/lib/utils";
 
 interface PlanManagementProps {
   plans: Plan[];
@@ -110,7 +111,7 @@ export const PlanManagement = ({
   }
 
   return (
-    <div className="space-y-4 md:space-y-6">
+    <div className="space-y-4 md:space-y-6 truncate">
       {/* Header with Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         <Card className="p-3 md:p-4">
@@ -161,19 +162,18 @@ export const PlanManagement = ({
           </div>
         </Card>
 
-        <Card className="p-3 md:p-4">
+        <Card className="p-3 md:p-4 overflow-hidden">
           <div className="flex items-center gap-2 md:gap-3">
             <div className="p-1.5 md:p-2 bg-purple-100 rounded-lg">
               <TrendingUpIcon className="w-4 h-4 md:w-5 md:h-5 text-purple-600" />
             </div>
             <div>
-              <div className="text-lg md:text-2xl font-bold">
-                {plans.length > 0
+              <div className={"font-bold text-lg md:text-2xl"}>
+                {decidedPlans.length > 0
                   ? Math.round(
                       (successPlans.length / decidedPlans.length) * 100
-                    )
-                  : 0}
-                %
+                    ) + "%"
+                  : "N/A"}
               </div>
               <div className="text-xs md:text-sm text-muted-foreground">
                 Success Rate
